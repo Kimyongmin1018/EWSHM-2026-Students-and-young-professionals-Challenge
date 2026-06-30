@@ -9,7 +9,7 @@
 
 ## About
 
-Event-level signal-processing framework for health scoring of 4-span bridges using triggered strain and acceleration responses. The method builds spanwise inter-sensor response similarity maps to track ageing trends and identify anomalous events under varying traffic and operating conditions.
+Event-level bridge health scoring using triggered strain and acceleration responses and inter-sensor spectral response similarity.
 
 This repository contains the core preprocessing scripts, compact sample data, and three analysis notebooks developed for **Subject 1: Data-driven detection of trends and anomalies in civil engineering applications** in the **12th European Workshop on Structural Health Monitoring (EWSHM 2026) Students & Young Professionals Challenge**.
 
