@@ -1,0 +1,16 @@
+# Data and generated artifacts
+EWSHM-contest-data/
+EWSHM_dataset_preprocessed/
+EWSHM_dataset_preprocessed_event_level/
+AutoResearch_generated_method/
+KYM/outputs/
+
+# Python/Jupyter caches
+__pycache__/
+.ipynb_checkpoints/
+*.pyc
+
+# Local environment
+.env
+.venv/
+venv/

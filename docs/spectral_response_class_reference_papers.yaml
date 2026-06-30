@@ -1,0 +1,308 @@
+title: "Reference Papers for Spectral Response Class Definition"
+purpose: "Literature basis for the five PSD-based spectral response classes used in the event-level bridge response analysis."
+pdf_page_note: "All page numbers below are 1-based PDF page numbers from the local files in /reference."
+important_note: >
+  The frequency limits below are method-specific, physics-informed partitions for this dataset.
+  They should not be described as universal bridge-engineering standard bands.
+  The references are used to support why each selected frequency range can be interpreted as
+  quasi-static response, low-frequency vibration, vehicle-bridge dynamic vibration, higher dynamic
+  axle/road-related response, or noise-sensitive high-frequency content. The exact class boundaries
+  are selected for the present 100 Hz, traffic-triggered bridge event data after considering these
+  physical references and the observed PSD distribution.
+
+spectral_classes:
+  - class_id: "C1"
+    label: "QUASI-STATIC"
+    frequency_range_hz: "0.05-0.80"
+    physical_meaning: "Vehicle-induced slow deflection response."
+    frequency_range_support:
+      evidence_strength: "indirect_physics_based"
+      claim_to_support: "The 0.05-0.80 Hz band is interpreted as the slowest vehicle-induced bridge response, dominated by quasi-static bending/deflection rather than modal vibration."
+      why_this_range:
+        - "Lu2019 states that quasi-static strain under traffic loads has lower frequency than bridge natural-frequency components and uses the first bridge frequency as a separation threshold."
+        - "Lu2019 reports an example first bridge frequency of 1.221 Hz; using 0.80 Hz as the upper limit keeps this class below the first dynamic-frequency threshold in that bridge example."
+        - "The 0.05 Hz lower bound is used to exclude near-DC offset, thermal drift, and record-level baseline drift while retaining slow traffic-induced deflection response."
+      key_page_evidence:
+        - ref_id: "Lu2019"
+          pdf_page: 4
+          supports: "quasi-static strain has lower frequency than bridge natural-frequency components; first bridge frequency is used as the separation threshold."
+        - ref_id: "Lu2019"
+          pdf_page: 7
+          supports: "example first bridge frequency is reported as 1.221 Hz."
+        - ref_id: "Chen2021"
+          pdf_page: 1
+          supports: "quasi-static component is used as a bridge-characteristic response component and is less sensitive to vehicle speed."
+    boundary_interpretation: >
+      This band is used for the slowest traffic-induced bridge response after removing near-DC drift.
+      The upper limit is placed below the main dynamic vehicle-bridge frequency range so that slow
+      bending/deflection-dominant response is separated from dynamic vibration.
+    reference_basis:
+      - ref_id: "Lu2019"
+        reason: "Supports separation of quasi-static strain from dynamic bridge strain under moving vehicle loads."
+        pdf_page: 4
+        supporting_statement: >
+          The paper states that quasi-static strain under ambient traffic loads has lower frequency
+          than the bridge natural-frequency components and uses the first bridge frequency as a separation threshold.
+      - ref_id: "Chen2021"
+        reason: "Uses the quasi-static component of moving-vehicle-induced bridge response for damage-sensitive interpretation."
+        pdf_page: 1
+        supporting_statement: >
+          The paper describes the quasi-static component as reflecting inherent bridge characteristics
+          and reports that it is less sensitive to moving-load velocity than other response components.
+
+  - class_id: "C2"
+    label: "LOW DYNAMIC"
+    frequency_range_hz: "0.80-2.00"
+    physical_meaning: "Combined slow bending and low-frequency vibration."
+    frequency_range_support:
+      evidence_strength: "indirect_transition_band"
+      claim_to_support: "The 0.80-2.00 Hz band is interpreted as a transition range where low-frequency bridge vibration begins to appear above quasi-static response but below the dominant 2-5 Hz vehicle/bridge interaction range."
+      why_this_range:
+        - "The lower bound follows the quasi-static cutoff used in this study, separating this class from the slow deflection-dominant band."
+        - "NCHRP1981 reports 2-5 Hz as the common natural-frequency range of many modern heavy vehicles; therefore the upper bound of 2.00 Hz separates low dynamic response from the dominant vehicle-bridge dynamic range."
+        - "YangLin2005 supports the existence of low-frequency peaks in bridge displacement spectra under vehicle passage."
+      key_page_evidence:
+        - ref_id: "Lu2019"
+          pdf_page: 14
+          supports: "moving-load bridge response is dominated by low-frequency vibration."
+        - ref_id: "YangLin2005"
+          pdf_page: 3
+          supports: "vehicle passage produces low-frequency peaks in bridge displacement spectra."
+        - ref_id: "NCHRP1981"
+          pdf_page: 13
+          supports: "many modern heavy vehicles have natural frequencies within 2-5 Hz, motivating 2 Hz as the transition into the main dynamic band."
+    boundary_interpretation: >
+      This band bridges the quasi-static response range and the commonly reported 2-5 Hz
+      vehicle/bridge resonance-related range. It is therefore interpreted as low-frequency structural
+      vibration mixed with remaining slow bending response.
+    reference_basis:
+      - ref_id: "Lu2019"
+        reason: "Shows that moving-load bridge response is dominated by low-frequency components and uses the first bridge frequency as a dynamic/quasi-static threshold."
+        pdf_page: 14
+        supporting_statement: >
+          The conclusions state that a long-span rigid-frame bridge under moving vehicle loads is dominated
+          by low-frequency vibration and that the first bridge frequency can be used as the separation threshold.
+      - ref_id: "YangLin2005"
+        reason: "Provides the vehicle-bridge interaction basis for low-frequency bridge vibration induced by moving vehicles."
+        pdf_page: 3
+        supporting_statement: >
+          The paper explains that bridge displacement spectra can contain low-frequency peaks associated
+          with vehicle speed, while acceleration spectra can reveal the first bridge frequency.
+      - ref_id: "LinYang2005"
+        reason: "Supports bridge fundamental-frequency extraction from vehicle-induced dynamic response."
+        pdf_page: 1
+        supporting_statement: >
+          The paper experimentally verifies that a passing vehicle excites the bridge and that the vehicle-mounted
+          receiver can scan the bridge vibration frequency.
+
+  - class_id: "C3"
+    label: "MID DYNAMIC"
+    frequency_range_hz: "2.00-5.00"
+    physical_meaning: "Dominant vehicle-induced bridge vibration."
+    frequency_range_support:
+      evidence_strength: "direct_literature_supported"
+      claim_to_support: "The 2.00-5.00 Hz band is interpreted as the dominant vehicle-induced bridge vibration range because this range is directly reported for heavy-vehicle natural frequencies and bridge dynamic amplification."
+      why_this_range:
+        - "NCHRP1981 directly states that many modern heavy vehicles have natural frequencies within 2-5 Hz."
+        - "NCHRP1981 also states that large vibration amplitudes occur when vehicle and bridge frequencies coincide."
+        - "YangLin2005 explains that vehicle-bridge interaction response includes vehicle-frequency and bridge-frequency components."
+      key_page_evidence:
+        - ref_id: "NCHRP1981"
+          pdf_page: 13
+          supports: "many modern heavy vehicles have natural frequencies within 2-5 Hz; bridge impact factors are discussed for bridge fundamental frequencies within 2-5 Hz."
+        - ref_id: "NCHRP1981"
+          pdf_page: 9
+          supports: "largest traffic-induced vibration amplitudes occur when vehicle and bridge natural frequencies coincide, usually within 2-5 Hz."
+        - ref_id: "YangLin2005"
+          pdf_page: 20
+          supports: "vehicle-bridge response contains driving-frequency, vehicle-frequency, and shifted bridge-frequency components."
+    boundary_interpretation: >
+      This band is centered on the frequency range where many traffic-induced bridge vibration and
+      heavy-vehicle natural-frequency interactions are expected. It is used as the main vehicle-bridge
+      dynamic response class.
+    reference_basis:
+      - ref_id: "NCHRP1981"
+        reason: "Reports that traffic-induced bridge vibrations are commonly within 1-20 Hz and that many heavy vehicles have natural frequencies around 2-5 Hz."
+        pdf_page: 13
+        supporting_statement: >
+          The report states that traffic-induced bridge vibrations are usually within 1-20 Hz and that
+          many modern heavy vehicles have natural frequencies within 2-5 Hz.
+      - ref_id: "YangLin2005"
+        reason: "Supports interpretation of this band as vehicle-bridge interaction response."
+        pdf_page: 20
+        supporting_statement: >
+          The paper summarizes that vehicle-bridge response contains driving-frequency, vehicle-frequency,
+          and shifted bridge-frequency components.
+      - ref_id: "LinYang2005"
+        reason: "Supports identifying bridge frequency content from vehicle-passage response."
+        pdf_page: 12
+        supporting_statement: >
+          The experimental results show that both vehicle and bridge frequencies can be identified
+          from the cart response during vehicle passage.
+
+  - class_id: "C4"
+    label: "HIGH DYNAMIC"
+    frequency_range_hz: "5.00-12.00"
+    physical_meaning: "Higher-frequency bridge vibration with axle and road-surface effects."
+    frequency_range_support:
+      evidence_strength: "broad_range_supported"
+      claim_to_support: "The 5.00-12.00 Hz band is interpreted as higher traffic-induced bridge vibration, still within the commonly reported traffic-induced vibration range but above the primary 2-5 Hz heavy-vehicle interaction range."
+      why_this_range:
+        - "NCHRP1981 reports that traffic-induced bridge vibrations are usually within 1-20 Hz; 5-12 Hz remains inside this traffic-induced vibration range."
+        - "The lower bound starts above the directly supported 2-5 Hz dominant vehicle/bridge interaction range."
+        - "YangLiChang2013 uses a 3-10 Hz band-pass example for bridge-frequency extraction, supporting that bridge-related dynamic content can extend beyond 5 Hz."
+        - "LinYang2005 reports that high vehicle speed can blur bridge frequency by high-frequency components associated with pavement roughness and mechanical parts."
+      key_page_evidence:
+        - ref_id: "NCHRP1981"
+          pdf_page: 13
+          supports: "traffic-induced bridge vibrations are usually within 1-20 Hz."
+        - ref_id: "YangLiChang2013"
+          pdf_page: 5
+          supports: "a 3-10 Hz band-pass range is used in a bridge-frequency extraction example."
+        - ref_id: "LinYang2005"
+          pdf_page: 8
+          supports: "high-frequency components related to pavement roughness and mechanical parts can affect bridge-frequency visibility."
+    boundary_interpretation: >
+      This band remains inside the broad traffic-induced vibration range but is above the primary 2-5 Hz
+      heavy-vehicle/resonance range. It is interpreted as higher dynamic bridge response where axle,
+      speed, pavement, and filtering effects can be more visible.
+    reference_basis:
+      - ref_id: "NCHRP1981"
+        reason: "Places traffic-induced bridge vibration broadly within the 1-20 Hz range."
+        pdf_page: 13
+        supporting_statement: >
+          The report gives 1-20 Hz as the usual range for traffic-induced bridge vibrations, which supports
+          treating 5-12 Hz as a higher but still traffic-related dynamic range.
+      - ref_id: "YangLiChang2013"
+        reason: "Discusses filtering for bridge-frequency extraction under vehicle-frequency dominance and unwanted spectral peaks."
+        pdf_page: 5
+        supporting_statement: >
+          The study applies a 3-10 Hz band-pass range in a bridge-frequency extraction example and notes
+          that filtering can both suppress vehicle peaks and create unexpected peaks.
+      - ref_id: "LinYang2005"
+        reason: "Shows that higher vehicle speed can blur bridge-frequency identification through high-frequency components related to pavement and mechanical effects."
+        pdf_page: 8
+        supporting_statement: >
+          The field test discussion reports that bridge-frequency peaks at high vehicle speed can be blurred
+          by high-frequency components associated with pavement roughness and mechanical parts.
+
+  - class_id: "C5"
+    label: "NOISE-SENSITIVE"
+    frequency_range_hz: "12.00-25.00"
+    physical_meaning: "Impact, road-surface vibration, and sensor-noise-sensitive range."
+    frequency_range_support:
+      evidence_strength: "diagnostic_upper_band"
+      claim_to_support: "The 12.00-25.00 Hz band is interpreted as an upper-frequency diagnostic range where traffic-induced vibration may still appear near the lower part, but road roughness, impact-like components, filtering artifacts, and sensor-noise sensitivity become increasingly important."
+      why_this_range:
+        - "NCHRP1981 reports 1-20 Hz as the usual traffic-induced bridge-vibration range; therefore 12-20 Hz is the upper part of the traffic-induced range."
+        - "The 20-25 Hz portion is beyond the usual traffic-induced bridge-vibration range and is kept only as a noise-sensitive diagnostic range, not as a primary bridge-response band."
+        - "Nagayama2017 states that vehicle response includes bridge vibration and road roughness, and that roughness-related components can obscure bridge-frequency peaks."
+        - "YangLiChang2013 shows that unwanted vehicle-frequency peaks and filtering effects complicate bridge-frequency extraction."
+      key_page_evidence:
+        - ref_id: "NCHRP1981"
+          pdf_page: 13
+          supports: "traffic-induced bridge vibrations are usually within 1-20 Hz, so the 12-20 Hz part is treated as upper traffic-induced content."
+        - ref_id: "Nagayama2017"
+          pdf_page: 1
+          supports: "road-roughness components can be prevalent enough to nullify bridge-related frequency peaks."
+        - ref_id: "Nagayama2017"
+          pdf_page: 2
+          supports: "vehicle vibration on a bridge has two main excitation sources: bridge vibration and road roughness."
+        - ref_id: "YangLiChang2013"
+          pdf_page: 1
+          supports: "vehicle-frequency peaks can dominate spectra and obscure desired bridge-frequency peaks."
+    boundary_interpretation: >
+      This band covers the upper side of the traffic-induced vibration range and extends slightly beyond
+      the commonly reported 1-20 Hz range. It is therefore retained as a diagnostic/noise-sensitive class,
+      not as a primary bridge modal-response class.
+    reference_basis:
+      - ref_id: "YangLiChang2013"
+        reason: "Supports treating vehicle-frequency dominance, filtering artifacts, and unwanted spectral peaks as practical issues in bridge-frequency extraction."
+        pdf_page: 1
+        supporting_statement: >
+          The abstract explains that vehicle-frequency peaks can dominate the spectrum and make desired
+          bridge-frequency peaks difficult to identify.
+      - ref_id: "Nagayama2017"
+        reason: "Supports distinguishing bridge-related vibration from vehicle/road-induced components."
+        pdf_page: 2
+        supporting_statement: >
+          The paper states that vehicle vibration on a bridge has two main excitation sources:
+          bridge vibration and road roughness.
+      - ref_id: "NCHRP1981"
+        reason: "Supports that traffic-induced vibration may extend through the higher part of the 1-20 Hz range; values near and above this range should be interpreted cautiously."
+        pdf_page: 13
+        supporting_statement: >
+          The report identifies 1-20 Hz as the usual traffic-induced bridge-vibration range, so 12-25 Hz
+          is treated as upper-range and partly beyond-range diagnostic content.
+
+references:
+  - ref_id: "Lu2019"
+    citation: "Lu, H., Gao, Z., Wu, B., & Zhou, Z. (2019). Dynamic and quasi-static signal separation method for bridges under moving loads based on long-gauge FBG strain monitoring."
+    venue: "Journal of Low Frequency Noise, Vibration and Active Control"
+    doi: "10.1177/1461348418822375"
+    link: "https://doi.org/10.1177/1461348418822375"
+    local_pdf: "../reference/ref1_lu-et-al-2019-dynamic-and-quasi-static-signal-separation-method-for-bridges-under-moving-loads-based-on-long-gauge-fbg.pdf"
+    relevance: "Quasi-static/dynamic strain separation; low-frequency contribution of moving-load bridge response."
+    evidence_pages: [4, 8, 14]
+
+  - ref_id: "Chen2021"
+    citation: "Chen, Z. W., Zhou, Y. G., He, W. Y., & Liu, M. Q. (2021). Bridge Damage Detection Using Quasi-Static Component of Moving Vehicle-Induced Dynamic Response."
+    venue: "International Journal of Computational Methods"
+    doi: "10.1142/S0219876220420013"
+    link: "https://doi.org/10.1142/S0219876220420013"
+    local_pdf: "../reference/ref2_bridge-damage-detection-using-quasi-static-component-of-moving-vehicle-induced-dynamic-response.pdf"
+    relevance: "Quasi-static component of moving-vehicle-induced bridge response for damage-sensitive interpretation."
+    evidence_pages: [1, 9, 20, 21]
+
+  - ref_id: "YangLin2005"
+    citation: "Yang, Y. B., & Lin, C. W. (2005). Vehicle-bridge interaction dynamics and potential applications."
+    venue: "Journal of Sound and Vibration"
+    doi: "10.1016/j.jsv.2004.06.032"
+    link: "https://doi.org/10.1016/j.jsv.2004.06.032"
+    local_pdf: "../reference/ref3_Vehicle–bridge interaction dynamics and potential applications.pdf"
+    relevance: "Fundamental vehicle-bridge interaction theory; dynamic response induced by moving vehicles."
+    evidence_pages: [3, 7, 20]
+
+  - ref_id: "LinYang2005"
+    citation: "Lin, C. W., & Yang, Y. B. (2005). Use of a passing vehicle to scan the fundamental bridge frequencies: An experimental verification."
+    venue: "Engineering Structures"
+    doi: "10.1016/j.engstruct.2005.06.016"
+    link: "https://doi.org/10.1016/j.engstruct.2005.06.016"
+    local_pdf: "../reference/ref4_Use of a passing vehicle to scan the fundamental bridge frequencies_ An experimental verification.pdf"
+    relevance: "Experimental verification of bridge frequency extraction from vehicle-induced response."
+    evidence_pages: [1, 8, 12]
+
+  - ref_id: "YangLiChang2013"
+    citation: "Yang, Y. B., Li, Y. C., & Chang, K. C. (2013). Filtering techniques for extracting bridge frequencies from a test vehicle moving over the bridge."
+    venue: "Engineering Structures"
+    doi: "10.1016/j.engstruct.2012.09.025"
+    link: "https://doi.org/10.1016/j.engstruct.2012.09.025"
+    local_pdf: "../reference/ref5_Filtering techniques for extracting bridge frequencies from a test vehicle moving over the bridge.pdf"
+    relevance: "Vehicle-frequency dominance, filtering, and unwanted spectral peaks in extracting bridge frequency content."
+    evidence_pages: [1, 5, 9]
+
+  - ref_id: "Nagayama2017"
+    citation: "Nagayama, T., Reksowardojo, A. P., Su, D., & Mizutani, T. (2017). Bridge natural frequency estimation by extracting the common vibration component from the responses of two vehicles."
+    venue: "Engineering Structures"
+    doi: "10.1016/j.engstruct.2017.07.040"
+    link: "https://doi.org/10.1016/j.engstruct.2017.07.040"
+    local_pdf: "../reference/ref6_Bridge natural frequency estimation by extracting the common vibration component from the responses of two vehicles.pdf"
+    relevance: "Separation of bridge vibration from vehicle/road-induced components using spectral information."
+    evidence_pages: [1, 2]
+
+  - ref_id: "NCHRP1981"
+    citation: "NCHRP Synthesis 86. Effects of Traffic-Induced Vibrations on Bridge-Deck Repairs."
+    venue: "Transportation Research Board"
+    link: "https://onlinepubs.trb.org/Onlinepubs/nchrp/nchrp_syn_86.pdf"
+    local_pdf: "../reference/ref7_EFFECTS OF TRAFFIC-INDUCED VIBRATIONS ON BRIDGE-DECK REPAIRS.pdf"
+    relevance: "Traffic-induced bridge vibration ranges and the 2-5 Hz natural-frequency range of many heavy vehicles."
+    evidence_pages: [9, 13, 14]
+
+  - ref_id: "Kalin2022"
+    citation: "Kalin, J., Znidaric, A., Anzlin, A., & Kreslin, M. (2022). Measurements of bridge dynamic amplification factor using bridge weigh-in-motion data."
+    venue: "Structure and Infrastructure Engineering"
+    doi: "10.1080/15732479.2021.1887291"
+    link: "https://doi.org/10.1080/15732479.2021.1887291"
+    local_pdf: null
+    relevance: "Dynamic amplification under traffic loading using strain-based bridge weigh-in-motion data."
+    evidence_note: "No local PDF was found in /reference, and this ref_id is not used in the class-specific evidence above."
