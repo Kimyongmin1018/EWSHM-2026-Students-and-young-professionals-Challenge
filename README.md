@@ -18,6 +18,8 @@ This repository contains the core preprocessing scripts, compact sample data, an
 **Korea Advanced Institute of Science and Technology (KAIST)**<br>
 Department of Civil and Environmental Engineering
 
+**Team members:** Yongmin Kim, Subin Shin, Hoon Sohn
+
 ## Challenge Context
 
 The EWSHM Challenge encourages young researchers to develop and present practical SHM methods to an international community from academia, industry, authorities, and research organizations.
