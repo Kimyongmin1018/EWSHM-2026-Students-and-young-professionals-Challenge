@@ -14,6 +14,8 @@ reference/
 *.joblib
 *.pkl
 *.pdf
+!sample_data/**/*.hdf5
+!sample_data/**/*.json
 
 # Python/Jupyter caches
 __pycache__/
