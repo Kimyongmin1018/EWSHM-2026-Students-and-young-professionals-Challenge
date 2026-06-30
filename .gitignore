@@ -4,11 +4,22 @@ EWSHM_dataset_preprocessed/
 EWSHM_dataset_preprocessed_event_level/
 AutoResearch_generated_method/
 KYM/outputs/
+figures/
+figures_v2/
+reference/
+*.h5
+*.hdf5
+*.csv
+*.parquet
+*.joblib
+*.pkl
+*.pdf
 
 # Python/Jupyter caches
 __pycache__/
 .ipynb_checkpoints/
 *.pyc
+.pytest_cache/
 
 # Local environment
 .env
