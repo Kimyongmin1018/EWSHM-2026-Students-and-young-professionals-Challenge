@@ -36,23 +36,7 @@ The health score is derived from two complementary consistency measures:
 1. **Same-group consistency:** response similarity among STR sensors with comparable structural roles.
 2. **Opposite-span consistency:** response similarity across opposite spans, used as a structural redundancy check.
 
-## Processing Pipeline
-
-```mermaid
-%%{init: {"theme": "base", "themeVariables": {"fontSize": "20px", "fontFamily": "Arial", "primaryColor": "#EAF2FF", "primaryBorderColor": "#2563EB", "lineColor": "#334155", "tertiaryColor": "#F8FAFC"}}}%%
-flowchart TB
-    A["1. Active-window extraction"]
-    B["2. Welch PSD spectral response vector construction"]
-    C["3. STR health score estimation"]
-
-    A --> B --> C
-
-    C --> C1["3a. STR & ACC spectral response vectors"]
-    C1 --> C2["3b. Class-weighted response vectors"]
-    C2 --> C3["3c. ACC-normalized STR vectors"]
-    C3 --> C4["3d. Inter-sensor spectral response similarity map"]
-    C4 --> C5["3e. STR health score trend"]
-```
+## Workflow
 
 | Stage | Output |
 |---:|---|
