@@ -17,6 +17,9 @@ reference/
 !sample_data/**/*.hdf5
 !sample_data/**/*.json
 !resources/**/*.pdf
+!assets/
+!assets/figures/
+!assets/figures/*.png
 
 # Python/Jupyter caches
 __pycache__/

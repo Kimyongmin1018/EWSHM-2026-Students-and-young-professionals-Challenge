@@ -29,22 +29,31 @@ The EWSHM Challenge encourages young researchers to develop and present practica
 - **Selected subject:** Subject 1, data-driven trend and anomaly detection in civil engineering applications
 - **Official challenge page:** <https://ewshm2026.com/ewshm-challenge>
 
-## Core Idea
+## Abstract
 
-Triggered bridge responses are converted into frequency-class response vectors. STR response vectors are corrected using local ACC input information, and the corrected STR vectors are compared pairwise to build an inter-sensor spectral response similarity map.
+This project develops a reference- and baseline-free bridge health scoring method for unlabeled traffic-induced monitoring data. Each event is represented by spectral response classes from triggered STR and ACC measurements, and structurally comparable STR sensors are evaluated using inter-sensor spectral response similarity. The resulting score provides an interpretable response-consistency trajectory for comparing deck-level, span-level, and sensor-group-level trends.
 
-The health score is derived from two complementary consistency measures:
+## Method Overview
 
-1. **Same-group consistency:** response similarity among STR sensors with comparable structural roles.
-2. **Opposite-span consistency:** response similarity across opposite spans, used as a structural redundancy check.
+| Stage | Method | Output |
+|---:|---|---|
+| 1 | STR-based active-window extraction using the Hilbert transform | Event duration applied to STR and ACC responses |
+| 2 | Welch PSD energy integration over five spectral response classes | STR and ACC spectral response vectors |
+| 3 | ACC-normalized STR similarity mapping and geometric score aggregation | Sensor-level and group-level bridge health scores |
 
-## Workflow
+## Overview Figures
 
-| Stage | Output |
-|---:|---|
-| 1 | Active-window STR/ACC event responses |
-| 2 | Class-wise Welch PSD spectral response vectors |
-| 3 | STR health score trajectories from ACC-normalized inter-sensor similarity |
+**Fig. 1. Problem definition and AQUINAS bridge-deck dataset overview.**
+
+<img src="assets/figures/FIG1.png" alt="Problem definition and AQUINAS bridge-deck dataset overview" width="100%">
+
+**Fig. 2. Proposed event-level data processing procedure.**
+
+<img src="assets/figures/FIG2.png" alt="Proposed event-level data processing procedure" width="100%">
+
+**Fig. 3. Final bridge health score trends for OLD and NEW decks.**
+
+<img src="assets/figures/FIG3.png" alt="Final bridge health score trends for OLD and NEW decks" width="100%">
 
 ## Repository Layout
 
@@ -53,6 +62,9 @@ The health score is derived from two complementary consistency measures:
 |-- sample_data/
 |   |-- raw_json/       # One compact raw JSON sample per AQUINAS set
 |   `-- event_hdf5/     # One compact event-level HDF5 sample per AQUINAS set
+|
+|-- assets/figures/
+|   README overview figures.
 |
 |-- preprocess_aquinas_hdf5.py
 |   Raw contest data to set/deck-level HDF5 preprocessing.
