@@ -19,7 +19,7 @@ reference/
 !resources/**/*.pdf
 !assets/
 !assets/figures/
-!assets/figures/*.png
+!assets/figures/*.jpg
 
 # Python/Jupyter caches
 __pycache__/

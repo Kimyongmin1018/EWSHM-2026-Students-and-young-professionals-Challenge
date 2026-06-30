@@ -45,15 +45,15 @@ This project develops a reference- and baseline-free bridge health scoring metho
 
 **Fig. 1. Problem definition and AQUINAS bridge-deck dataset overview.**
 
-<img src="assets/figures/FIG1.png" alt="Problem definition and AQUINAS bridge-deck dataset overview" width="100%">
+<img src="assets/figures/FIG1.jpg" alt="Problem definition and AQUINAS bridge-deck dataset overview" width="100%">
 
 **Fig. 2. Proposed event-level data processing procedure.**
 
-<img src="assets/figures/FIG2.png" alt="Proposed event-level data processing procedure" width="100%">
+<img src="assets/figures/FIG2.jpg" alt="Proposed event-level data processing procedure" width="100%">
 
 **Fig. 3. Final bridge health score trends for OLD and NEW decks.**
 
-<img src="assets/figures/FIG3.png" alt="Final bridge health score trends for OLD and NEW decks" width="100%">
+<img src="assets/figures/FIG3.jpg" alt="Final bridge health score trends for OLD and NEW decks" width="100%">
 
 ## Repository Layout
 
