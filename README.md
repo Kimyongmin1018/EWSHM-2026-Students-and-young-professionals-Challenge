@@ -9,7 +9,7 @@
 
 ## About
 
-ML-based health scoring for 4-span bridges from triggered multimodal strain and acceleration data. The method constructs event-wise spanwise response-similarity networks to track ageing trends and flag high-impact anomalies, yielding an interpretable health trajectory that is robust to varying traffic loads and operating conditions.
+Event-level signal-processing framework for health scoring of 4-span bridges using triggered strain and acceleration responses. The method builds spanwise inter-sensor response similarity maps to track ageing trends and identify anomalous events under varying traffic and operating conditions.
 
 This repository contains the core preprocessing scripts, compact sample data, and three analysis notebooks developed for **Subject 1: Data-driven detection of trends and anomalies in civil engineering applications** in the **12th European Workshop on Structural Health Monitoring (EWSHM 2026) Students & Young Professionals Challenge**.
 
