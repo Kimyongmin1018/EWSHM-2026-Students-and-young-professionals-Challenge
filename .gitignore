@@ -16,6 +16,7 @@ reference/
 *.pdf
 !sample_data/**/*.hdf5
 !sample_data/**/*.json
+!resources/**/*.pdf
 
 # Python/Jupyter caches
 __pycache__/

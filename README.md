@@ -147,6 +147,8 @@ jupyter lab notebooks/
 
 - EWSHM 2026 Challenge: <https://ewshm2026.com/ewshm-challenge>
 - EWSHM 2026 Conference: <https://ewshm2026.com/>
+- AQUINAS Dataset Handbook: [`resources/Aquinas-Dataset-Handbook.pdf`](resources/Aquinas-Dataset-Handbook.pdf)
+- Subject 1 challenge brief: [`resources/Data-driven-detection-of-trends-and-anomalies-in-civil-engineering-applications.pdf`](resources/Data-driven-detection-of-trends-and-anomalies-in-civil-engineering-applications.pdf)
 - KAIST: <https://www.kaist.ac.kr/>
 
 ## Data Policy
