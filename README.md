@@ -41,22 +41,24 @@ The health score is derived from two complementary consistency measures:
 ```mermaid
 %%{init: {"theme": "base", "themeVariables": {"fontSize": "20px", "fontFamily": "Arial", "primaryColor": "#EAF2FF", "primaryBorderColor": "#2563EB", "lineColor": "#334155", "tertiaryColor": "#F8FAFC"}}}%%
 flowchart TB
-    A["1. Triggered STR/ACC event data"] --> B["2. Event-level HDF5 preprocessing"]
-    B --> C["3. Active-window extraction"]
-    C --> D["4. Welch PSD energy calculation"]
-    D --> E["5. STR & ACC spectral response vectors"]
-    E --> F["6. Class-weighted response vectors"]
-    F --> G["7. ACC-normalized STR vectors"]
-    G --> H["8. Inter-sensor spectral response similarity map"]
-    H --> I["9. STR health score trend"]
+    A["1. Active-window extraction"]
+    B["2. Welch PSD spectral response vector construction"]
+    C["3. STR health score estimation"]
+
+    A --> B --> C
+
+    C --> C1["3a. STR & ACC spectral response vectors"]
+    C1 --> C2["3b. Class-weighted response vectors"]
+    C2 --> C3["3c. ACC-normalized STR vectors"]
+    C3 --> C4["3d. Inter-sensor spectral response similarity map"]
+    C4 --> C5["3e. STR health score trend"]
 ```
 
 | Stage | Output |
 |---:|---|
-| 1-2 | Aligned event-level STR/ACC response matrices |
-| 3-5 | Active-window PSD energy and spectral response vectors |
-| 6-7 | Input-corrected STR response vectors |
-| 8-9 | Inter-sensor similarity maps and health score trajectories |
+| 1 | Active-window STR/ACC event responses |
+| 2 | Class-wise Welch PSD spectral response vectors |
+| 3 | STR health score trajectories from ACC-normalized inter-sensor similarity |
 
 ## Repository Layout
 
